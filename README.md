@@ -12,6 +12,7 @@ Svelte Actions to play interaction sounds on target DOM events
 
 - Lightweight and performant
 - Only [Howler](https://howlerjs.com) core is used
+- Loads Howler using dynamic imports to support partial hydration
 - Scalable (can be used in complex game interactions)
 - Truly reactive by default
 
