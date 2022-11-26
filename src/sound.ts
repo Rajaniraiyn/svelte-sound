@@ -1,4 +1,3 @@
-import { Howl } from "howler/src/howler.core";
 import type { HowlOptions } from "howler";
 
 type Options = {
@@ -13,7 +12,8 @@ export function sound(node: HTMLElement, options: Options) {
     stop = () => {},
     unload = () => {};
 
-  function create(options: Options) {
+  async function create(options: Options) {
+    const { Howl } = await import("howler/src/howler.core");
     const { src, events, loop, volume } = options;
     const sound = new Howl({
       src,
