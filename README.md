@@ -77,10 +77,13 @@ This can be reused multiple times on multiple elements within svelte. This retur
 </button>
 ```
 
+## Example
+
+For usage example have a look at [example](example/) directory
+
 ## License
 
 [MIT](LICENSE)
-
 
 <div align=center>
 
