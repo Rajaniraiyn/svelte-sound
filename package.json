@@ -12,7 +12,8 @@
   "types": "dist/sound.d.ts",
   "scripts": {
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "author": "Rajaniraiyn R <rajaniraiyn@gmail.com>",
   "devDependencies": {
