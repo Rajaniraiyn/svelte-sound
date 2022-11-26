@@ -3,6 +3,8 @@
   "version": "0.2.0",
   "description": "An utility for playing sounds in Svelte using svelte actions",
   "type": "module",
+  "main": "./dist/svelte-sound.cjs",
+  "module": "./dist/svelte-sound.js",
   "exports": {
     ".": {
       "import": "./dist/svelte-sound.js",
@@ -27,7 +29,6 @@
   "dependencies": {
     "howler": "^2.2.3"
   },
-  "main": "src/sound.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rajaniraiyn/svelte-sound.git"
