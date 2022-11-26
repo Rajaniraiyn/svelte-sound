@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/Rajaniraiyn/svelte-sound/issues"
   },
-  "homepage": "https://github.com/Rajaniraiyn/svelte-sound#readme"
+  "homepage": "https://github.com/Rajaniraiyn/svelte-sound#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
 }
