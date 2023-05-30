@@ -43,7 +43,13 @@ pnpm i svelte-sound
 
 ### `sound`
 
-This can be directly used on elements within svelte as a svelte action
+This can be directly used on elements within svelte as a svelte action.
+This actions following mandatory options,
+| Option | Type | Description |
+| --- | --- | --- |
+| `src` | `string` | The source of the sound file |
+| `events` | `[PlayEvent, StopEvent?]` | An array of events to play and stop the sound |
+and valid [Howler Core Options](https://github.com/goldfire/howler.js/#options) as optional options
 
 ```svelte
 <script>
@@ -58,7 +64,13 @@ This can be directly used on elements within svelte as a svelte action
 
 ### `useSound`
 
-This can be reused multiple times on multiple elements within svelte. This returns a svelte action
+This can be reused multiple times on multiple elements within svelte. This returns a svelte action.
+This method accepts following parameters,
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `src` | `string` | The source of the sound file |
+| `events` | `[PlayEvent, StopEvent?]` | An array of events to play and stop the sound |
+| `options` | `HowlerOptions?` | An object of valid [Howler Core Options](https://github.com/goldfire/howler.js/#options) |
 
 ```svelte
 <script>
@@ -81,6 +93,47 @@ This can be reused multiple times on multiple elements within svelte. This retur
 ## Example
 
 For usage example have a look at [example](example/) directory
+
+## FAQs
+
+> How to Stop the sound/audio?
+
+You can always pass an event as the second element of the `events` array to stop the sound on that event.
+e.g.
+
+```svelte
+<script>
+  import { sound } from "svelte-sound";
+  import click_mp4 from "./assets/click.mp4";
+</script>
+
+<button use:sound={{src: click_mp4, events: ["click", "dblclick"]}}>
+    Click Me!!
+</button>
+```
+
+In the above example the sound will be played on `click` and stopped on `dblclick`
+
+Alternatively you can use `play` and `stop` methods added to the element by the action. To play or stop the sound you can call the respective methods on the element.
+e.g.
+
+```svelte
+<script>
+  import { sound } from "svelte-sound";
+  import click_mp4 from "./assets/click.mp4";
+
+  let button;
+</script>
+
+<button
+  bind:this={button}
+  on:dblclick={() => button.stop()}
+  use:sound={{src: click_mp4, events: ["click"]}}>
+    Click Me!!
+</button>
+```
+
+In the above example the sound will be played on `click` and stopped on `dblclick` using the `stop` method which we done programmatically.
 
 ## License
 
