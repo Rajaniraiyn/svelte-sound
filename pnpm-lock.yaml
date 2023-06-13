@@ -14,7 +14,7 @@ devDependencies:
     version: 5.17.6
   tslib:
     specifier: ^2.5.2
-    version: 2.5.2
+    version: 2.5.3
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -877,8 +877,8 @@ packages:
       code-block-writer: 12.0.0
     dev: true
 
-  /tslib@2.5.2:
-    resolution: {integrity: sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==}
+  /tslib@2.5.3:
+    resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
     dev: true
 
   /typescript@5.0.4:
