@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   howler:
     specifier: ^2.2.3
@@ -11,7 +15,7 @@ devDependencies:
     version: 2.2.7
   terser:
     specifier: ^5.17.6
-    version: 5.18.1
+    version: 5.18.2
   tslib:
     specifier: ^2.5.2
     version: 2.5.3
@@ -20,7 +24,7 @@ devDependencies:
     version: 5.0.4
   vite:
     specifier: ^4.3.9
-    version: 4.3.9(terser@5.18.1)
+    version: 4.3.9(terser@5.18.2)
   vite-plugin-dts:
     specifier: ^2.3.0
     version: 2.3.0(vite@4.3.9)
@@ -847,8 +851,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /terser@5.18.1:
-    resolution: {integrity: sha512-j1n0Ao919h/Ai5r43VAnfV/7azUYW43GPxK7qSATzrsERfW7+y2QW9Cp9ufnRF5CQUWbnLSo7UJokSWCqg4tsQ==}
+  /terser@5.18.2:
+    resolution: {integrity: sha512-Ah19JS86ypbJzTzvUCX7KOsEIhDaRONungA4aYBjEP3JZRf4ocuDzTg4QWZnPn9DEMiMYGJPiSOy7aykoCc70w==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -924,14 +928,14 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 18.0.0
-      vite: 4.3.9(terser@5.18.1)
+      vite: 4.3.9(terser@5.18.2)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.3.9(terser@5.18.1):
+  /vite@4.3.9(terser@5.18.2):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -959,7 +963,7 @@ packages:
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.23.0
-      terser: 5.18.1
+      terser: 5.18.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
