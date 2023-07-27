@@ -18,7 +18,7 @@ devDependencies:
     version: 5.19.1
   tslib:
     specifier: ^2.5.2
-    version: 2.6.0
+    version: 2.6.1
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -801,8 +801,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /tslib@2.6.0:
-    resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
+  /tslib@2.6.1:
+    resolution: {integrity: sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==}
     dev: true
 
   /typescript@5.0.4:
