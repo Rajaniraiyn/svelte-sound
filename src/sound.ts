@@ -26,43 +26,120 @@ type PlayEvent = keyof HTMLElementEventMap;
  */
 type StopEvent = keyof HTMLElementEventMap;
 
+type SoundSource = HowlOptions["src"];
+type SoundEvents = [PlayEvent, StopEvent?];
+type SoundOptions = Omit<Options, "src" | "events">;
+
+/**
+ * Options for creating a SyntheticSound instance.
+ */
 type Options = {
-  events: [PlayEvent, StopEvent?];
+  events: SoundEvents;
 } & HowlOptions;
 
 /**
- * Main Sound class
- * used to create and manage sounds by this library
+ * A class representing a synthetic sound.
  */
-class Sound {
-  private node: HTMLElement;
-  private options: Options;
-
+export class Sound {
+  private src: SoundSource;
+  private options?: SoundOptions;
   private howl: THowl;
 
-  constructor(node: HTMLElement, options: Options) {
-    this.node = node;
+  /**
+   * Creates a new SyntheticSound instance.
+   * @param options The options for the sound.
+   */
+  constructor(src: SoundSource, options: SoundOptions = {}) {
+    this.src = src;
     this.options = options;
 
     this.create();
   }
 
   /**
-   * creates the sound
+   * Creates the Howl instance for the sound.
    */
   private async create() {
     const { Howl } = await import("howler/src/howler.core");
-    const { src, events, loop, volume } = this.options;
+    const { loop, volume } = this.options;
     const sound: THowl = new Howl({
-      src,
+      src: this.src,
       loop: loop || false,
       volume: volume || 1,
       ...this.options,
     });
 
     this.howl = sound;
+  }
 
-    const [playEvent, stopEvent] = events;
+  /**
+   * Updates the options for the sound.
+   * @param options The new options for the sound.
+   */
+  update(options = this.options as Options) {
+    this.unload();
+    this.options = options;
+    this.create();
+  }
+
+  /**
+   * Destroys the sound instance.
+   */
+  destroy() {
+    this.stop();
+    this.unload();
+  }
+
+  /**
+   * Plays the sound.
+   */
+  play() {
+    this.howl.play();
+  }
+
+  /**
+   * Stops the sound.
+   */
+  stop() {
+    this.howl.stop();
+  }
+
+  /**
+   * Unloads the sound.
+   */
+  private unload() {
+    this.howl.unload();
+  }
+}
+
+/**
+ * A class representing a sound player that can be attached to an HTML element.
+ * @extends Sound
+ */
+class SvelteSound extends Sound {
+  node: HTMLElement;
+
+  events: SoundEvents;
+
+  /**
+   * Creates a new Sound instance.
+   * @param node The HTML element to attach the sound player to.
+   * @param options The options to configure the sound player.
+   */
+  constructor(node: HTMLElement, { src, events, ...options }: Options) {
+    super(src, options);
+
+    this.node = node;
+
+    this.events = events;
+    this.attachControls();
+  }
+
+  /**
+   * Adds event listeners to the HTML element to play and stop the sound.
+   */
+  attachControls() {
+    const [playEvent, stopEvent] = this.events;
 
     this.node.play = this.play.bind(this);
     this.node.stop = this.stop.bind(this);
@@ -72,37 +149,11 @@ class Sound {
     this.node.addEventListener(stopEvent, this.stop.bind(this));
   }
 
-  update(options: Options) {
-    this.unload();
-    this.options = options;
-    this.create();
-  }
-
-  destroy() {
-    this.stop();
-    this.unload();
-  }
-
   /**
-   * plays the sound
+   * Removes event listeners from the HTML element to play and stop the sound.
    */
-  private play() {
-    this.howl.play();
-  }
-
-  /**
-   * stops the sound
-   */
-  private stop() {
-    this.howl.stop();
-  }
-
-  /**
-   * Removes the event listeners attached to the node
-   */
-  private removeEventListeners() {
-    const { events } = this.options;
-    const [playEvent, stopEvent] = events;
+  removeEventListeners() {
+    const [playEvent, stopEvent] = this.events;
 
     this.node.removeEventListener(playEvent, this.play.bind(this));
 
@@ -110,29 +161,46 @@ class Sound {
   }
 
   /**
-   * unloads the sound
+   * Updates the sound player with new options.
+   * @param options The new options to configure the sound player.
    */
-  private unload() {
+  update(options: Parameters<Sound["update"]>[0]) {
     this.removeEventListeners();
-    this.howl.unload();
+    super.update(options);
+    this.attachControls();
+  }
+
+  /**
+   * Destroys the sound player and removes all event listeners.
+   */
+  destroy() {
+    this.removeEventListeners();
+    super.destroy();
   }
 }
 
 /**
- * Svelte Action to play sound effects
+ * Creates a new Sound instance.
+ * @param node The HTML element to attach the sound player to.
+ * @param options The options to configure the sound player.
+ * @returns A new Sound instance.
  */
 export function sound(node: HTMLElement, options: Options) {
-  return new Sound(node, options);
+  return new SvelteSound(node, options);
 }
 
 /**
- * Svelte Sound Reusable Action generator
+ * Creates a new Sound instance with the given options.
+ * @param src The source URL(s) of the sound.
+ * @param events The events to listen to for playing and stopping the sound.
+ * @param options The options to configure the sound player.
+ * @returns A function that creates a new Sound instance with the given options.
  */
 export function useSound(
-  src: string | string[],
-  events: [PlayEvent, StopEvent?],
-  options?: Omit<Options, "src" | "events">
+  src: SoundSource,
+  events: SoundEvents,
+  options?: SoundOptions
 ) {
-  return (node: HTMLElement, overrideOptions?: Partial<Options>) => 
-    new Sound(node, { src, events, ...options, ...overrideOptions });
+  return (node: HTMLElement, overrideOptions?: Partial<Options>) =>
+    new SvelteSound(node, { src, events, ...options, ...overrideOptions });
 }
