@@ -49,8 +49,7 @@ This actions following mandatory options,
 | Option | Type | Description |
 | --- | --- | --- |
 | `src` | `string` | The source of the sound file |
-| `events` | `[PlayEvent, StopEvent?]` | An array of events to play and stop the sound |
-and valid [Howler Core Options](https://github.com/goldfire/howler.js/#options) as optional options
+| `events` | `[PlayEvent, StopEvent?]` | An array of events to play and stop the sound and valid [Howler Core Options](https://github.com/goldfire/howler.js/#options) as optional options
 
 ```svelte
 <script>
