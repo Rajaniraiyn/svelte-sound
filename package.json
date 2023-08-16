@@ -20,11 +20,11 @@
   "author": "Rajaniraiyn R <rajaniraiyn@gmail.com>",
   "devDependencies": {
     "@types/howler": "^2.2.7",
-    "terser": "^5.17.6",
-    "tslib": "^2.5.2",
-    "typescript": "^5.0.4",
-    "vite": "^4.3.9",
-    "vite-plugin-dts": "^3.0.2"
+    "terser": "^5.19.2",
+    "tslib": "^2.6.1",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.2"
   },
   "dependencies": {
     "howler": "^2.2.3"
