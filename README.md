@@ -36,10 +36,11 @@ pnpm i svelte-sound
 
 ## Usage
 
-`svelte-sound` can be used in two ways,
+`svelte-sound` can be used in three ways,
 
 1. `sound`
 2. `useSound`
+3. `Sound` class
 
 ### `sound`
 
@@ -90,6 +91,26 @@ This method accepts following parameters,
 </button>
 ```
 
+### `Sound` class
+
+This can be used to play the sound programmatically. This returns a `Sound` class instance.
+This method accepts following parameters,
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `src` | `string` | The source of the sound file |
+| `options` | `HowlerOptions?` | An object of valid [Howler Core Options](https://github.com/goldfire/howler.js/#options) |
+
+```js
+import { Sound } from "svelte-sound";
+import click_mp4 from "./assets/click.mp4";
+
+const click_sound = new Sound(click_mp4);
+
+function playSound() {
+  click_sound.play();
+} // playSound can be called anywhere in the code
+```
+
 ## Example
 
 For usage example have a look at [example](example/) directory
@@ -134,6 +155,23 @@ e.g.
 ```
 
 In the above example the sound will be played on `click` and stopped on `dblclick` using the `stop` method which we done programmatically.
+
+> How to use this library programmatically without any DOM events?
+
+You can use Sound class exported by the package to play the sound programmatically.
+e.g.
+
+```js
+import { Sound } from "svelte-sound";
+import click_mp4 from "./assets/click.mp4";
+
+const click_sound = new Sound(click_mp4);
+
+function playSound() {
+  click_sound.play();
+}
+```
+In the above example the sound will be played on calling the `play` method of the `click_sound` object.
 
 ## License
 
