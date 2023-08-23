@@ -2,7 +2,7 @@
 
 # svelte-sound
 
-[![TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://typescriptlang.org) [![Npm package version](https://badgen.net/npm/v/svelte-sound)](https://npmjs.com/package/svelte-sound) [![GitHub license](https://badgen.net/github/license/Rajaniraiyn/svelte-sound)](LICENSE) ![Made for svelte](https://img.shields.io/badge/made%20for-svelte-red)
+[![TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://typescriptlang.org) [![NPM package version](https://badgen.net/npm/v/svelte-sound)](https://npmjs.com/package/svelte-sound) [![NPM total downloads](https://img.shields.io/npm/dt/svelte-sound)](https://npmjs.com/package/svelte-sound) [![GitHub license](https://badgen.net/github/license/Rajaniraiyn/svelte-sound)](LICENSE) ![Made for svelte](https://img.shields.io/badge/made%20for-svelte-red)
 
 Svelte Actions to play interaction sounds on target DOM events
 
