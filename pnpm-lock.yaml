@@ -7,7 +7,7 @@ settings:
 dependencies:
   howler:
     specifier: ^2.2.3
-    version: 2.2.3
+    version: 2.2.4
 
 devDependencies:
   '@types/howler':
@@ -613,8 +613,8 @@ packages:
     hasBin: true
     dev: true
 
-  /howler@2.2.3:
-    resolution: {integrity: sha512-QM0FFkw0LRX1PR8pNzJVAY25JhIWvbKMBFM4gqk+QdV+kPXOhleWGCB6AiAF/goGjIHK2e/nIElplvjQwhr0jg==}
+  /howler@2.2.4:
+    resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
     dev: false
 
   /import-lazy@4.0.0:
