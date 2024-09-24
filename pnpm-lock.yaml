@@ -20,7 +20,7 @@ importers:
         version: 5.31.1
       tslib:
         specifier: ^2.6.1
-        version: 2.6.2
+        version: 2.7.0
       typescript:
         specifier: ^5.1.6
         version: 5.4.3
@@ -566,8 +566,8 @@ packages:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
 
-  tslib@2.6.2:
-    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+  tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   typescript@5.0.4:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
@@ -1114,7 +1114,7 @@ snapshots:
 
   to-fast-properties@2.0.0: {}
 
-  tslib@2.6.2: {}
+  tslib@2.7.0: {}
 
   typescript@5.0.4: {}
 
