@@ -60,7 +60,7 @@ export class Sound {
    * Creates the Howl instance for the sound.
    */
   private async create() {
-    const { Howl } = await import("howler/src/howler.core");
+    const { Howl } = await import("howler");
     const { loop, volume } = this.options;
     const sound: THowl = new Howl({
       src: this.src,
