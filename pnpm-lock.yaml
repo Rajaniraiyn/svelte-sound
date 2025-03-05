@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@types/howler':
         specifier: ^2.2.7
-        version: 2.2.11
+        version: 2.2.12
       terser:
         specifier: ^5.19.2
         version: 5.33.0
@@ -342,8 +342,8 @@ packages:
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
 
-  '@types/howler@2.2.11':
-    resolution: {integrity: sha512-7aBoUL6RbSIrqKnpEgfa1wSNUBK06mn08siP2QI0zYk7MXfEJAaORc4tohamQYqCqVESoDyRWSdQn2BOKWj2Qw==}
+  '@types/howler@2.2.12':
+    resolution: {integrity: sha512-hy769UICzOSdK0Kn1FBk4gN+lswcj1EKRkmiDtMkUGvFfYJzgaDXmVXkSShS2m89ERAatGIPnTUlp2HhfkVo5g==}
 
   '@volar/language-core@2.4.5':
     resolution: {integrity: sha512-F4tA0DCO5Q1F5mScHmca0umsi2ufKULAnMOVBfMsZdT4myhVl4WdKRwCaKcfOkIEuyrAVvtq1ESBdZ+rSyLVww==}
@@ -935,7 +935,7 @@ snapshots:
 
   '@types/estree@1.0.5': {}
 
-  '@types/howler@2.2.11': {}
+  '@types/howler@2.2.12': {}
 
   '@volar/language-core@2.4.5':
     dependencies:
