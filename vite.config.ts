@@ -9,6 +9,14 @@ export default defineConfig({
       entry: "src/sound.ts",
       formats: ["es", "cjs"],
     },
+    rollupOptions: {
+      external: ["howler"],
+      output: {
+        globals: {
+          howler: "Howler",
+        },
+      },
+    },
   },
   plugins: [dts()],
 });
