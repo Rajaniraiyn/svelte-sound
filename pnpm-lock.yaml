@@ -23,13 +23,13 @@ importers:
         version: 2.7.0
       typescript:
         specifier: ^5.1.6
-        version: 5.7.2
+        version: 5.8.2
       vite:
         specifier: ^6.2.2
         version: 6.2.2(terser@5.33.0)
       vite-plugin-dts:
         specifier: ^4.2.2
-        version: 4.2.2(rollup@4.36.0)(typescript@5.7.2)(vite@6.2.2(terser@5.33.0))
+        version: 4.2.2(rollup@4.36.0)(typescript@5.8.2)(vite@6.2.2(terser@5.33.0))
 
 packages:
 
@@ -669,8 +669,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.7.2:
-    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
+  typescript@5.8.2:
+    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -1023,7 +1023,7 @@ snapshots:
       de-indent: 1.0.2
       he: 1.2.0
 
-  '@vue/language-core@2.1.6(typescript@5.7.2)':
+  '@vue/language-core@2.1.6(typescript@5.8.2)':
     dependencies:
       '@volar/language-core': 2.4.5
       '@vue/compiler-dom': 3.5.8
@@ -1034,7 +1034,7 @@ snapshots:
       muggle-string: 0.4.1
       path-browserify: 1.0.1
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.8.2
 
   '@vue/shared@3.5.8': {}
 
@@ -1301,7 +1301,7 @@ snapshots:
 
   typescript@5.4.2: {}
 
-  typescript@5.7.2: {}
+  typescript@5.8.2: {}
 
   ufo@1.5.4: {}
 
@@ -1311,18 +1311,18 @@ snapshots:
     dependencies:
       punycode: 2.3.0
 
-  vite-plugin-dts@4.2.2(rollup@4.36.0)(typescript@5.7.2)(vite@6.2.2(terser@5.33.0)):
+  vite-plugin-dts@4.2.2(rollup@4.36.0)(typescript@5.8.2)(vite@6.2.2(terser@5.33.0)):
     dependencies:
       '@microsoft/api-extractor': 7.47.7
       '@rollup/pluginutils': 5.1.2(rollup@4.36.0)
       '@volar/typescript': 2.4.5
-      '@vue/language-core': 2.1.6(typescript@5.7.2)
+      '@vue/language-core': 2.1.6(typescript@5.8.2)
       compare-versions: 6.1.1
       debug: 4.3.7
       kolorist: 1.8.0
       local-pkg: 0.5.0
       magic-string: 0.30.11
-      typescript: 5.7.2
+      typescript: 5.8.2
     optionalDependencies:
       vite: 6.2.2(terser@5.33.0)
     transitivePeerDependencies:
