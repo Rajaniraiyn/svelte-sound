@@ -23,7 +23,7 @@ Keep regression tests for behavior changes. Use direct names and comments that e
 
 ## Publish
 
-Preview locally with `bun publish --dry-run`. Publish locally with `bun publish`.
+Inspect the archive with `bun run build && bun pm pack --ignore-scripts`. Publish locally with `bun publish` after signing in to npm.
 
 Configure the npm trusted publisher once:
 
