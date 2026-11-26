@@ -1,0 +1,17 @@
+{
+  "name": "example-renderer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --bun vite",
+    "build": "bun --bun vite build"
+  },
+  "dependencies": {
+    "svelte-sound": "workspace:*"
+  },
+  "devDependencies": {
+    "svelte": "^5.59.2",
+    "@sveltejs/vite-plugin-svelte": "^7.3.2",
+    "vite": "^8.4.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "example-svelte",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --bun vite",
+    "build": "bun --bun vite build",
+    "preview": "bun --bun vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.2",
+    "svelte": "^5.59.2",
+    "vite": "^8.4.0"
+  },
+  "dependencies": {
+    "svelte-sound": "workspace:*"
+  }
+}

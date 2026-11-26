@@ -1,0 +1,63 @@
+name: Publish
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.4.5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - name: Check release tag
+        id: release
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          bun -e '
+            import { version } from "./package.json";
+            if (!/^\d+\.\d+\.\d+(?:-[\da-zA-Z.-]+)?$/.test(version) || process.env.RELEASE_TAG !== `v${version}`) {
+              throw new Error("Tag must match package.json version, for example v1.0.0");
+            }
+            const prerelease = version.includes("-");
+            await Bun.write(process.env.GITHUB_OUTPUT, `dist-tag=${prerelease ? "next" : "latest"}\nprerelease=${prerelease}\n`);
+          '
+      - run: bun install --frozen-lockfile
+      - run: bun run validate
+      - run: bun run build:examples
+      - run: bun pm pack --ignore-scripts --filename package.tgz
+      - name: Publish to npm through OIDC
+        run: npm publish ./package.tgz --access public --provenance --tag "$DIST_TAG"
+        env:
+          DIST_TAG: ${{ steps.release.outputs.dist-tag }}
+      - name: Create GitHub release with generated notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+          PRERELEASE: ${{ steps.release.outputs.prerelease }}
+        run: |
+          args=("$RELEASE_TAG" "package.tgz" --verify-tag --generate-notes)
+          if [[ "$PRERELEASE" == "true" ]]; then
+            args+=(--prerelease --latest=false)
+          fi
+          gh release create "${args[@]}"

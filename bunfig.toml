@@ -1,0 +1,6 @@
+[test]
+root = "./tests"
+
+[fmt]
+singleQuote = true
+ignorePatterns = ["CODE_OF_CONDUCT.md", "examples/renderer/src/Scene.svelte"]
