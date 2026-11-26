@@ -1,22 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
+    "target": "ES2022",
     "module": "ESNext",
-    "resolveJsonModule": true,
-    /**
-     * Typecheck JS in `.svelte` and `.js` files by default.
-     * Disable checkJs if you'd like to use dynamic types in JS.
-     * Note that setting allowJs false does not prevent the use
-     * of JS in `.svelte` files.
-     */
-    "allowJs": true,
-    "checkJs": true,
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "moduleResolution": "Node",
-    "types": [
-      "vite/client",
-    ]
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["bun", "vite/client"],
+    "paths": {
+      "svelte-sound": ["./src/index.ts"],
+      "svelte-sound/renderer": ["./src/renderer.ts"],
+      "svelte-sound/web-audio": ["./src/web-audio.ts"]
+    },
+    "allowJs": true,
+    "checkJs": true
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js"]
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "tests/**/*.svelte",
+    "examples/svelte/**/*.ts",
+    "examples/svelte/**/*.svelte",
+    "examples/renderer/**/*.ts",
+    "examples/renderer/**/*.svelte",
+    "examples/vite.ts"
+  ]
 }

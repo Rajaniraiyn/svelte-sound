@@ -1,0 +1,27 @@
+body {
+  font:
+    1rem/1.6 system-ui,
+    sans-serif;
+  margin: 0;
+  color: #20232a;
+}
+main {
+  max-width: 40rem;
+  margin: 4rem auto;
+  padding: 1rem;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  padding: 0.6rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+label {
+  display: block;
+  margin-block: 1rem;
+}
+a {
+  color: #4234b5;
+}
